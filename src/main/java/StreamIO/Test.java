@@ -31,7 +31,7 @@ public class Test {
             writer.close();
             System.out.println("File1 can read: " + file1.canRead());
             //копируем содержимое первого файла во второй
-            CopyWriter.copyWithBuffer(file1, file2);
+            CopyWriter.copyWithHLS(file1, file2);
         } catch (IOException e) {
             e.printStackTrace();
         }

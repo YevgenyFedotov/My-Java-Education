@@ -4,7 +4,8 @@ import java.io.*;
 
 public class CopyWriter {
     public static void copy(File source, File target) throws IOException {
-        try(Reader reader = new FileReader(source); Writer writer = new FileWriter(target)){
+        try(Reader reader = new FileReader(source);
+            Writer writer = new FileWriter(target)){
             int c = 0;
             while ((c = reader.read()) != -1){
                 writer.write(c);
@@ -13,7 +14,8 @@ public class CopyWriter {
     }
 
     public static void copyWithBuffer(File source, File target) throws IOException {
-        try(Reader reader = new FileReader(source); Writer writer = new FileWriter(target)){
+        try(Reader reader = new FileReader(source);
+            Writer writer = new FileWriter(target)){
             int c = 0;
             char[] buff = new char[1024]; //буфер на 1 кБайт
             /*
@@ -23,6 +25,19 @@ public class CopyWriter {
              */
             while (reader.read(buff) != -1){
                 writer.write(buff);
+            }
+        }
+    }
+    /*
+    Заметка: все еще должен использовать буферизацию,
+    но в отличие от низкоуровнего стрима не увеличивает размер нового файла
+    */
+    public static void copyWithHLS(File source, File target) throws IOException {
+        try(Reader reader = new BufferedReader(new FileReader(source));
+            Writer writer = new BufferedWriter(new FileWriter(target))){
+            int c = 0;
+            while ((c = reader.read()) != -1){
+                writer.write(c);
             }
         }
     }
