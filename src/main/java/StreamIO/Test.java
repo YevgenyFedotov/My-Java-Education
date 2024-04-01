@@ -27,6 +27,9 @@ public class Test {
             writer.write("Red");
             writer.write("\nGreen");
             writer.write("\nBlue");
+            System.out.println("File1 can read: " + file1.canRead());
+            //копируем содержимое первого файла во второй
+            CopyWriter.copy(file1, file2);
         } catch (IOException e) {
             e.printStackTrace();
         }
