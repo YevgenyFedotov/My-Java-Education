@@ -1,15 +1,17 @@
 package Unsorted.Account;
 
+import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Account {
+public class Account implements Serializable{
+    private static final long serialVersionUID = 123456789l;
     private int id;
     private double balance;
     private static double annualInterestRate = 0;
     private Date dateCreated;
-    protected String name;
+    protected transient String name;
     private AbstractList<Transaction> transactions = new ArrayList<Transaction>();
 
     public Account(){
