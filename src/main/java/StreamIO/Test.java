@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 public class Test {
+    public static String absPath = "C:\\Users\\19722618\\IdeaProjects\\YevgenyProject\\";
     public static void main(String[] args){
         //Задаем дирректорию для создания файлов
         String AbsPath = "C:\\Users\\19722618\\IdeaProjects\\YevgenyProject\\";
