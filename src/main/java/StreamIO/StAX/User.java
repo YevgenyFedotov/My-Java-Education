@@ -30,4 +30,8 @@ public class User {
     public String toString(){
         return "name: " + name + "\nid: " + id;
     }
+
+    private void doSomething(String action){
+        System.out.println("doing: " + action);
+    }
 }
